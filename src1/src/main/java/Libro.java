@@ -7,7 +7,7 @@ public class Libro {
 	private String titulo;
 	private String autor;
 	private String isbn;
-	private int año;
+	private int fecha;
 
 	public String getTitulo() {
 		return this.titulo;
@@ -45,16 +45,16 @@ public class Libro {
 		this.isbn = isbn;
 	}
 
-	public int getAño() {
-		return this.año;
+	public int getFecha() {
+		return this.fecha;
 	}
 
 	/**
 	 * 
-	 * @param año
+	 * @param fecha
 	 */
-	public void setAño(int año) {
-		this.año = año;
+	public void setFecha(int fecha) {
+		this.fecha = fecha;
 	}
 
 }
