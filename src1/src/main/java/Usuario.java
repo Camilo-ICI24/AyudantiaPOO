@@ -14,10 +14,12 @@ public class Usuario {
 	 * @param nombre
 	 */
 	public void setNombre(String nombre) {
+
 		this.nombre = nombre;
 	}
 
 	public int getIdUsuario() {
+
 		return this.idUsuario;
 	}
 
@@ -26,6 +28,7 @@ public class Usuario {
 	 * @param idUsuario
 	 */
 	public void setIdUsuario(int idUsuario) {
+
 		this.idUsuario = idUsuario;
 	}
 

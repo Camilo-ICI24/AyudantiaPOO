@@ -1,35 +1,51 @@
-import java.util.*;
+import java.time.LocalDate;
 
 public class Prestamo {
 
-	private Collection<Usuario> deudor;
+	private Usuario deudor;
 	private Multa multas;
 	private String fechaPrestamo;
-	private int fechaDevolucion;
+	private String fechaDevolucion;
 
-	public String getFechaPrestamo() {
-		return this.fechaPrestamo;
+	public Prestamo() {
 	}
 
-	/**
-	 * 
-	 * @param fechaPrestamo
-	 */
+	public Prestamo(Usuario deudor, String fechaPrestamo, String fechaDevolucion) {
+		this.deudor = deudor;
+		this.fechaPrestamo = fechaPrestamo;
+		this.fechaDevolucion = fechaDevolucion;
+	}
+
+
+	public Usuario getDeudor() {
+		return deudor;
+	}
+
+	public void setDeudor(Usuario deudor) {
+		this.deudor = deudor;
+	}
+
+	public Multa getMultas() {
+		return multas;
+	}
+
+	public void setMultas(Multa multas) {
+		this.multas = multas;
+	}
+
+	public String getFechaPrestamo() {
+		return fechaPrestamo;
+	}
+
 	public void setFechaPrestamo(String fechaPrestamo) {
 		this.fechaPrestamo = fechaPrestamo;
 	}
 
-	public void getFechaDevolucion() {
-		// TODO - implement Prestamo.getFechaDevolucion
-		throw new UnsupportedOperationException();
+	public String getFechaDevolucion() {
+		return fechaDevolucion;
 	}
 
-	/**
-	 * 
-	 * @param fechaDevolucion
-	 */
-	public void setFechaDevolucion(int fechaDevolucion) {
+	public void setFechaDevolucion(String fechaDevolucion) {
 		this.fechaDevolucion = fechaDevolucion;
 	}
-
 }

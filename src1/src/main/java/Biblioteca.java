@@ -68,42 +68,6 @@ public class Biblioteca {
 		return true;
 	}
 
-	public boolean prestarLibro(Usuario usuario, Libro libro) {
-		if (!libros.contains(libro)) {
-			System.out.println("El libro no está disponible en la biblioteca.");
-			return false;
-		}
-
-		// Comprobar si el usuario ya tiene un préstamo del mismo libro
-		for (Prestamo prestamo : usuario.getPrestamos()) {
-			if (prestamo.getLibro().equals(libro)) {
-				System.out.println("El usuario ya tiene este libro en préstamo.");
-				return false;
-			}
-		}
-
-		// Crear un nuevo préstamo
-		Prestamo nuevoPrestamo = new Prestamo();
-		nuevoPrestamo.setUsuario(usuario);
-		nuevoPrestamo.setLibro(libro);
-		nuevoPrestamo.setFechaPrestamo(new Date());
-
-		// Agregar el préstamo al usuario
-		usuario.agregarPrestamo(nuevoPrestamo);
-
-		// Quitar el libro de la colección de libros disponibles
-		libros.remove(libro);
-
-		System.out.println("Préstamo realizado con éxito.");
-		return true;
-	}
-
-	}
-
-	/**
-	 *
-	 * @param usuario
-	 */
 	public Multa multarUsuario(Usuario usuario) {
 		// TODO - implement Biblioteca.multarUsuario
 		throw new UnsupportedOperationException();
@@ -114,9 +78,11 @@ public class Biblioteca {
 	 * @param empleado
 	 */
 	public boolean agregarEmpleado(Empleado empleado) {
-		// TODO - implement Biblioteca.agregarEmpleado
-		throw new UnsupportedOperationException();
+		empleado.agr(empleado);
+		System.out.println("Empleado añadido con éxito");
+		return true;
 	}
+
 
 	/**
 	 *
@@ -154,13 +120,16 @@ public class Biblioteca {
 		throw new UnsupportedOperationException();
 	}
 
-	/**
-	 *
-	 * @param categoria
-	 */
 	public boolean eliminarCategoria(Categoria categoria) {
-		// TODO - implement Biblioteca.eliminarCategoria
-		throw new UnsupportedOperationException();
+		if (categoria == null || !categoria.contains(categoria)) {
+			System.out.println("Categoría no encontrada.");
+			return false;
+		}
+
+		categoria.remove(categoria);
+		System.out.println("Categoría " + categoria.getNombre() + " eliminada exitosamente.");
+		return true;
 	}
+
 
 }

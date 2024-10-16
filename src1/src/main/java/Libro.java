@@ -2,8 +2,8 @@ import java.util.*;
 
 public class Libro {
 
-	private Collection<Biblioteca> biblioteca;
-	private Collection<Categoria> categoriaLibro;
+	private ArrayList<Biblioteca> biblioteca;
+	private ArrayList<Categoria> categoriaLibro;
 	private String titulo;
 	private String autor;
 	private String isbn;
