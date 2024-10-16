@@ -3,7 +3,7 @@ import java.util.*;
 public class Biblioteca {
 
 	private ArrayList<Libro> libros;
-	private Empleado empleado;
+	private ArrayList<Empleado> empleado;
 	private String nombre;
 	private String direccion;
 
@@ -78,7 +78,7 @@ public class Biblioteca {
 	 * @param empleado
 	 */
 	public boolean agregarEmpleado(Empleado empleado) {
-		empleado.agr(empleado);
+		empleado.add(empleado);
 		System.out.println("Empleado añadido con éxito");
 		return true;
 	}
@@ -98,17 +98,32 @@ public class Biblioteca {
 	 * @param empleado
 	 */
 	public boolean eliminarEmpleado(Empleado empleado) {
-		// TODO - implement Biblioteca.eliminarEmpleado
-		throw new UnsupportedOperationException();
+		for (Empleado e : empleados) {
+			if (e.getIdEmpleado() == (empleado.getIdEmpleado())) {
+				empleados.remove(e);
+				System.out.println("Empleado eliminado con éxito");
+				return true;
+			}
+		}
+		System.out.println("Error: Empleado no encontrado");
+		return false;
 	}
+
 
 	/**
 	 *
 	 * @param categoria
 	 */
 	public boolean crearCategoria(Categoria categoria) {
-		// TODO - implement Biblioteca.crearCategoria
-		throw new UnsupportedOperationException();
+		for (Categoria c : categorias) {
+			if (c.getNombre().equals(categoria.getNombre())) {
+				System.out.println("Error: Categoría existente");
+				return false;
+			}
+		}
+		categorias.add(categoria);
+		System.out.println("Categoría añadida exitosamente");
+		return true;
 	}
 
 	/**
@@ -116,20 +131,27 @@ public class Biblioteca {
 	 * @param categoria
 	 */
 	public boolean modificarCategoria(Categoria categoria) {
-		// TODO - implement Biblioteca.modificarCategoria
-		throw new UnsupportedOperationException();
+		for (int c = 0; c < categorias.size(); c++) {
+			if (categorias.get(c).getNombre().equals(categoria.getNombre())) {
+				categorias.set(c, categoria);
+				System.out.println("Categoría modificada con éxito");
+				return true;
+			}
+		}
+		System.out.println("Error: Categoría no encontrada");
+		return false;
 	}
 
 	public boolean eliminarCategoria(Categoria categoria) {
-		if (categoria == null || !categoria.contains(categoria)) {
-			System.out.println("Categoría no encontrada.");
-			return false;
+		for (Categoria c : categorias) {
+			if (c.getNombre().equals(categoria.getNombre())) {
+				categorias.remove(c);
+				System.out.println("Categoría " + categoria.getNombre() + " eliminada exitosamente.");
+				return true;
+			}
 		}
-
-		categoria.remove(categoria);
-		System.out.println("Categoría " + categoria.getNombre() + " eliminada exitosamente.");
-		return true;
+		System.out.println("Error: Categoría no encontrada.");
+		return false;
 	}
-
 
 }
